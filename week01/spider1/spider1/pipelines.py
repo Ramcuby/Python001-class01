@@ -8,4 +8,10 @@
 
 class Spider1Pipeline:
     def process_item(self, item, spider):
+        with open('maoyan_movie_top10.csv', 'a+', encoding='utf-8') as file:
+            line = "{title},{category},{date}\n".format(
+                title=item['title'],
+                category=item['category'],
+                date=item['date'])
+            file.write(line)
         return item

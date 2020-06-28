@@ -61,7 +61,7 @@ DEFAULT_REQUEST_HEADERS = {
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
   'Accept-Language': 'en',
   'Cookie':'__mta=251425081.1593139858651.1593162288652.1593247563699.9; uuid_n_v=v1; uuid=DADDD3F0B75711EAAD7CEBC74F78E0F95A199D6306184D0682B7CFA7C93F750E; _csrf=e3f91413df3e7db171fcb78a33b448d90bad78e4179ac24fe70d618ace08d924; _lxsdk_cuid=172ee890511c8-02e9636521c6b2-31637403-13c680-172ee890512c8; _lxsdk=DADDD3F0B75711EAAD7CEBC74F78E0F95A199D6306184D0682B7CFA7C93F750E; mojo-uuid=d7ae468864ff3ff55d52f747940c6213; _lx_utm=utm_source%3DBaidu%26utm_medium%3Dorganic; Hm_lvt_703e94591e87be68cc8da0da7cbd0be2=1593139858,1593142110,1593160527; mojo-session-id={"id":"dc68e91ca8d79fe82e0633cff0ede5dd","time":1593273017980}; mojo-trace-id=7; Hm_lpvt_703e94591e87be68cc8da0da7cbd0be2=1593274024; __mta=251425081.1593139858651.1593247563699.1593274025571.10; _lxsdk_s=172f6780944-b39-a-9d3%7C%7C9',
-#}
+  }
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
@@ -83,9 +83,9 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'spider1.pipelines.Spider1Pipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'spider1.pipelines.Spider1Pipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -107,3 +107,4 @@ DEFAULT_REQUEST_HEADERS = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+#
