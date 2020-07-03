@@ -14,14 +14,14 @@ class Spider1Pipeline:
         date=item['date']
 
         mylist = {'title':[],'category':[],'date':[]}
-        mylist['title'].append(title)
-        mylist['category'].append(category)
+        mylist['title'].append(list(title))
+        mylist['category'].append(list(category))
         mylist['date'].append(date)
         # mylist = [title, category, date]
         movie1 = pd.DataFrame(data = mylist,columns=['title','category','date'])
-        print("hello----------------------")
-        print(mylist)
-        movie1.to_csv('movie1_1.csv',mode='a+',sep=',',encoding='utf8', index=False, header=False)
+        # print("hello----------------------")
+        # print(mylist)
+        movie1.to_csv('movie1_1.csv',mode='a+',encoding='utf8', index=False, header=False)
         # with open('maoyan_movie_top100.csv', 'a+', encoding='utf-8') as file:
         #     line = "{title},{category},{date}\n".format(
         #         title=item['title'],
