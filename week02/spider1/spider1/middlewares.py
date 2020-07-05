@@ -6,7 +6,11 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-
+from scrapy.downloadermiddlewares.httpproxy import HttpProxyMiddleware
+from scrapy.exceptions import NotConfigured
+from collections import defaultdict
+from urllib.parse import urlparse
+import random
 
 class Spider1SpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
@@ -56,6 +60,30 @@ class Spider1SpiderMiddleware:
         spider.logger.info('Spider opened: %s' % spider.name)
 
 
+class RandomHttpProxyMiddleware(HttpProxyMiddleware):
+
+    def __init__(self, auth_encoding='utf-8', proxy_list = None):
+        self.proxies = defaultdict(list)
+        # print（self.proxies）
+        for proxy in proxy_list:
+            parse = urlparse(proxy)
+            # print(parse)
+            self.proxies[parse.scheme].append(proxy)
+            # print(self.proxies)
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        if not crawler.settings.get('HTTP_PROXY_LIST'):
+            raise NotConfigured
+
+        http_proxy_list = crawler.settings.get('HTTP_PROXY_LIST')  
+        auth_encoding = crawler.settings.get('HTTPPROXY_AUTH_ENCODING', 'utf-8')
+
+        return cls(auth_encoding, http_proxy_list)
+
+    def _set_proxy(self, request, scheme):
+        proxy = random.choice(self.proxies[scheme])
+        request.meta['proxy'] = proxy
 class Spider1DownloaderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
