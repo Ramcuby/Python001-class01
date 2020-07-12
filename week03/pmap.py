@@ -76,11 +76,6 @@ if __name__ == '__main__':
     ip = args.ip
     filename = args.filename
 
-
-
-
-
-
 #     while True:
     aliveIPList=[]
     try:
@@ -92,33 +87,25 @@ if __name__ == '__main__':
     except:
         print("Input Error！")
     
-#     while True:
     openPortList = []
-#         inputList = list(input().split())
     inputList = list((aliveIPList[0]+' '+'1000').split())
     print(inputList)
     start = time.time() # 计时开始
 
     print("Scaning……")
-    # 扫描
-#         try:
+
     scanThread(*inputList)
     print(*inputList)
     print("---------------------------")
-    # openPortList.sort()
     name_emb = {}
     for openPort in openPortList:
         print(openPort, ": Open")
         key1=int(openPort)
-        # name_emb.update(key1='open')
     name_emb=dict.fromkeys(openPortList,'open')
-    print(name_emb)
-
-
-    # name_emb = {'a':'1111','b':'2222','c':'3333','d':'4444'}
+    # print(name_emb)
         
     output_dir = './'   
-    emb_filename = os.path.join(output_dir, 'result.json')
+    emb_filename = os.path.join(output_dir, filename)
  
     jsObj = json.dumps(name_emb)  
  
