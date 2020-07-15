@@ -40,7 +40,7 @@ print("SQL 1:"+sql[0])
 print(df_data)
 
 print("SQL 2:"+sql[1])
-print(df.head(10))
+print(df_data.head(10))
 
 print("SQL 3:"+sql[2])
 print(df_data['id'])
