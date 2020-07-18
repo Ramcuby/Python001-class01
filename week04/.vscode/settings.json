@@ -1,3 +1,9 @@
 {
-    "python.pythonPath": "/Users/zhl/opt/anaconda3/bin/python3.7"
+    "python.pythonPath": "/Users/zhl/opt/anaconda3/bin/python3.7",
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
 }
