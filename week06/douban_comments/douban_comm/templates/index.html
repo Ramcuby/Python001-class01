@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>豆瓣影评-by Ramcuby</title>
+    </head>
+    <body>
+        <h3><a href="/admin/">Admin</a></h3>
+        <ul>
+            <li>ID  ----  星数  ----  评论内容</li>
+            {% for douban in doubans %}
+            {% if douban.star > 3 %}
+            <li>{{ douban.author }} ---- {{ douban.star }}星 ---- {{douban.comments}}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        <hr/>
+        <form action="/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit" />
+        </form>
+    </body>
+</html>
